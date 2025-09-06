@@ -60,6 +60,8 @@ public class Complex {
         im = imag;
     }
 
+
+
     /**
      * Add operation.
      * @param b summand
@@ -82,6 +84,19 @@ public class Complex {
         double imag = a.re * b.im + a.im * b.re;
         re = real;
         im = imag;
+        return this;
+    }
+
+    public Complex minus(Complex b) {
+        re -= b.re;
+        im -= b.im;
+        return this;
+    }
+
+    public Complex divide(Complex b) {
+        double denom = b.re * b.re + b.im * b.im;
+        this.re = (this.re * b.re + this.im * b.im) / denom;
+        this.im = (this.im * b.re - this.re * b.im) / denom;
         return this;
     }
 
